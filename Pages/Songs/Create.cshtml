@@ -1,0 +1,50 @@
+﻿@page
+@model RazorPages_AlbumProject.Pages.Songs.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Song</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @*
+                <label asp-for="Song.RecordId" class="control-label"></label>*@
+                <input asp-for="Song.RecordID" class ="form-control" hidden/>@*
+                <span asp-validation-for="Song.RecordId" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Song.Title" class="control-label"></label>
+                <input asp-for="Song.Title" class="form-control" />
+                <span asp-validation-for="Song.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Song.Artist" class="control-label"></label>
+                <input asp-for="Song.Artist" class="form-control" />
+                <span asp-validation-for="Song.Artist" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Song.Length" class="control-label"></label>
+                <input asp-for="Song.Length" class="form-control" />
+                <span asp-validation-for="Song.Length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/Records/Index">Back to Albums</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,41 @@
+﻿@using AlbumLogger.Data;
+@model List<Song>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Artist)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Length)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Artist)
+                </td>
+                <td>
+                    <a asp-page="/Songs/Edit" asp-route-id="@item.SongId">Edit</a> |
+                    <a asp-page="/Songs/Details" asp-route-id="@item.SongId">Details</a> |
+                    <a asp-page="/Songs/Delete" asp-route-id="@item.SongId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

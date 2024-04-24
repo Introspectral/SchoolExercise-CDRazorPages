@@ -1,0 +1,50 @@
+﻿@page
+@model RazorPages_AlbumProject.Pages.Songs.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Song</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Song.SongId" />
+            <div class="form-group">
+                <label asp-for="Song.RecordID" class="control-label"></label>
+                <input asp-for="Song.RecordID" class="form-control" />
+                <span asp-validation-for="Song.RecordID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Song.Title" class="control-label"></label>
+                <input asp-for="Song.Title" class="form-control" />
+                <span asp-validation-for="Song.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Song.Artist" class="control-label"></label>
+                <input asp-for="Song.Artist" class="form-control" />
+                <span asp-validation-for="Song.Artist" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Song.Length" class="control-label"></label>
+                <input asp-for="Song.Length" class="form-control" />
+                <span asp-validation-for="Song.Length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/Albums/Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
